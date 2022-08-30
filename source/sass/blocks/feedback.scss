@@ -1,0 +1,128 @@
+.feedback {
+  position: relative;
+  background-color: $color-deep-sky-blue;
+  min-height: 840px;
+
+  @include vp-1023 {
+    min-height: 580px;
+  }
+
+  @include vp-767 {
+    min-height: 750px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -359px;
+    left: -616px;
+    width: 1450px;
+    height: 950px;
+    background-color: rgba(4, 24, 39, 0.5);
+    transform: rotate(-40.8deg);
+
+    @include vp-1023 {
+      display: none;
+    }
+  }
+}
+
+.feedback__container {
+  position: relative;
+  max-width: 1320px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 165px;
+  padding-bottom: 165px;
+  margin: 0 auto;
+  background-image: url("../img/paper-airplane.png");
+  background-repeat: no-repeat;
+  background-position: 45px 245px;
+  background-size: 39%;
+
+  @include vp-1023 {
+    padding-top: 45px;
+    background-image: none;
+    padding-bottom: 45px;
+  }
+
+  @include vp-767 {
+    padding-top: 47px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+.feedback h3 {
+  font-size: 36px;
+  line-height: 51px;
+  font-weight: 400;
+  color: $color-default-white;
+  margin: 0;
+  margin-bottom: 11px;
+  margin-left: 50%;
+  padding-left: 15px;
+
+  @include vp-1023 {
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 7px;
+  }
+
+  @include vp-767 {
+    font-size: 30px;
+    line-height: 42px;
+  }
+}
+
+.feedback p {
+  font-family: $ff-mono;
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-default-white;
+  padding-left: 20px;
+  margin: 0;
+  margin-bottom: 35px;
+  margin-left: 50%;
+
+  @include vp-1023 {
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 25px;
+  }
+
+  @include vp-767 {
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 34px;
+  }
+}
+
+.feedback__wrapper {
+  position: relative;
+}
+
+.feedback__btn {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $color-default-white;
+  background-color: #041427;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  padding: 15px 25px;
+  padding-bottom: 11px;
+  margin-top: 15px;
+  max-width: 265px;
+  cursor: pointer;
+
+  @include vp-767 {
+    grid-column: 1/3;
+    max-width: 100%;
+    margin-top: 10px;
+  }
+}

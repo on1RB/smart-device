@@ -12,10 +12,32 @@
 @font-face {
   font-style: normal;
   font-weight: 400;
-  font-family: "";
+  font-family: "Robotocondensed";
 
   font-display: swap;
-  src:
-    url("../fonts/.woff2") format("woff2"),
-    url("../fonts/.woff") format("woff");
+  src: local("Robotocondensed"),
+    url("../fonts/Robotocondensed.woff2") format("woff2"),
+    url("../fonts/Robotocondensed.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  font-family: "Robotocondensed";
+
+  font-display: swap;
+  src: local("Robotocondensed"),
+    url("../fonts/Robotocondensedbold.woff2") format("woff2"),
+    url("../fonts/Robotocondensedbold.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "PTmono";
+
+  font-display: swap;
+  src: local("PTmono"),
+    url("../fonts/ptmono.woff2") format("woff2"),
+    url("../fonts/ptmono.woff") format("woff");
 }
