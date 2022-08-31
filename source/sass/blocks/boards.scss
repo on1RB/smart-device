@@ -90,6 +90,9 @@
 }
 
 .boards__btn {
+  display: block;
+  max-width: 410px;
+  text-align: center;
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0.05em;
@@ -112,7 +115,7 @@
     line-height: 16px;
     margin-left: 0;
     padding: 12px 38px;
-    width: 100%;
+    max-width: 100%;
   }
 }
 

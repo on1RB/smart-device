@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
     element.classList.remove('page-footer__accordion--open');
   });
 
-  accList.forEach((element) => {
+  accList.forEach((element, index) => {
     element.addEventListener('click', () => {
       element.classList.toggle('page-footer__accordion--open');
       const panel = element.nextElementSibling;
@@ -34,6 +34,12 @@ window.addEventListener('DOMContentLoaded', () => {
       } else {
         panel.style.maxHeight = panel.scrollHeight + 'px';
       }
+
+      // eslint-disable-next-line max-nested-callbacks, no-shadow
+      accList.filter((_, i) => i !== index).forEach((element) => {
+        element.classList.remove('page-footer__accordion--open');
+        element.nextElementSibling.style.maxHeight = null;
+      });
     });
   });
 
@@ -57,6 +63,73 @@ window.addEventListener('DOMContentLoaded', () => {
         button.textContent = 'Подробнее';
       }
     });
+  });
+
+  const phoneInput = document.querySelector('input#phone');
+
+  phoneInput.addEventListener('input', (e) => {
+    const {target, data, inputType} = e;
+
+    if (!isStringifiedNumber(data)) {
+      target.value = target.value.slice(0, -1);
+    }
+
+    if (inputType === 'deleteContentBackward' && target.value.length <= 3) {
+      target.value = '+7(';
+    }
+
+    if (inputType !== 'deleteContentBackward' && target.value.length >= 6 && target.value[6] !== ')') {
+      target.value = `${target.value.slice(0, 6)})${target.value.slice(6)}`;
+    }
+  });
+
+  function isStringifiedNumber(str) {
+    return !isNaN(Number(str));
+  }
+
+  const phoneInputModal = document.querySelector('input#tel');
+
+  phoneInputModal.addEventListener('input', (e) => {
+    const {target, data, inputType} = e;
+
+    if (!isStringifiedNumber(data)) {
+      target.value = target.value.slice(0, -1);
+    }
+
+    if (inputType === 'deleteContentBackward' && target.value.length <= 3) {
+      target.value = '+7(';
+    }
+
+    if (inputType !== 'deleteContentBackward' && target.value.length >= 6 && target.value[6] !== ')') {
+      target.value = `${target.value.slice(0, 6)})${target.value.slice(6)}`;
+    }
+  });
+
+  const pageBody = document.querySelector('.page-body');
+  const headerButton = document.querySelector('.page-header__button');
+  const modal = document.querySelector('.modal');
+  const modalClose = document.querySelector('.modal__close');
+  const modalOverlay = document.querySelector('.modal__overlay');
+  const nameInput = document.querySelector('#user-name');
+
+  headerButton.addEventListener('click', () => {
+    pageBody.classList.add('scroll-lock-ios');
+    modal.classList.add('modal--open');
+    nameInput.focus();
+  });
+
+  modalClose.addEventListener('click', () => {
+    modal.classList.remove('modal--open');
+    pageBody.classList.remove('scroll-lock-ios');
+  });
+
+  modalOverlay.addEventListener('click', (e) => {
+    const target = e.target;
+
+    if (target.classList.contains('modal__overlay')) {
+      modal.classList.remove('modal--open');
+      pageBody.classList.remove('scroll-lock-ios');
+    }
   });
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'

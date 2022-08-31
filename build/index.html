@@ -10,7 +10,7 @@
     <link rel="preload" href="fonts/Robotocondensed.woff2" as="font">
     <link rel="stylesheet" href="css/style.min.css">
   </head>
-  <body>
+  <body class="page-body">
     <div class="wrapper">
       <header class="page-header">
         <div class="page-header__container">
@@ -45,10 +45,10 @@
           <div class="boards__container">
             <h2>Печатные платы</h2>
             <p>производство и&nbsp;монтаж, поставка комплектующих, блоков и&nbsp;модулей</p>
-            <button type="button" class="boards__btn">
+            <a href="#feedback" class="boards__btn">
               <span>Бесплатная консультация</span>
               <span>Получить бесплатную консультацию</span>
-            </button>
+            </a>
           </div>
         </section>
         <section class="advantages">
@@ -116,22 +116,22 @@
             </ul>
           </div>
         </section>
-        <section class="feedback">
+        <section class="feedback" id="feedback">
           <h2 class="visually-hidden">Форма Обратной Связи</h2>
           <div class="feedback__container">
             <h3>Остались вопросы? Задайте их нам!</h3>
             <p>Мы проконсультируем Вас бесплатно</p>
             <form action="https://echo.htmlacademy.ru" method="post">
               <fieldset>
-                <label class="visually-hidden" id="name">Введите ваше имя.</label>
+                <label class="visually-hidden" for="name">Введите ваше имя.</label>
                 <input type="text" id="name" name="name" placeholder="Имя" required minlength="1">
-                <label class="visually-hidden" id="phone">Введите ваш номер телефона.</label>
-                <input type="tel" name="phone" id="phone" placeholder="Телефон" required>
-                <label class="visually-hidden" id="question">Напишите ваш вопрос.</label>
+                <label class="visually-hidden" for="phone">Введите ваш номер телефона.</label>
+                <input type="tel" name="phone" id="phone" placeholder="Телефон" value="+7(" pattern="^\+7\(\d{3}\)\d{7}$" maxlength="14" required>
+                <label class="visually-hidden" for="question">Напишите ваш вопрос.</label>
                 <textarea name="question" id="question" rows="5" placeholder="Ваш вопрос"></textarea>
                 <button class="feedback__btn" type="submit">Задать вопрос</button>
                 <div class="feedback__wrapper">
-                  <input class="visually-hidden" type="checkbox" name="processing" id="processing" checked>
+                  <input class="visually-hidden" type="checkbox" name="processing" id="processing" checked required>
                   <label for="processing">Я&nbsp;согласен на&nbsp;обработку персональных данных</label>
                 </div>
               </fieldset>
@@ -222,6 +222,31 @@
           </address>
         </div>
       </footer>
+    </div>
+    <div class="modal">
+      <div class="modal__overlay"></div>
+      <div class="modal__container">
+        <h3>Закажите звонок</h3>
+        <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+        <button type="button" class="modal__close">
+          <span class="visually-hidden">Закрыть окно</span>
+        </button>
+        <form action="https://echo.htmlacademy.ru" method="post">
+          <fieldset>
+            <label class="visually-hidden" for="user-name">Введите ваше имя.</label>
+            <input type="text" id="user-name" name="user-name" placeholder="Имя" required minlength="1">
+            <label class="visually-hidden" for="tel">Введите ваш номер телефона.</label>
+            <input type="tel" name="tel" id="tel" placeholder="Телефон" value="+7(" pattern="^\+7\(\d{3}\)\d{7}$" maxlength="14" required>
+            <label class="visually-hidden" for="question-modal">Напишите ваш вопрос.</label>
+            <textarea name="question-modal" id="question-modal" rows="5" placeholder="Ваш вопрос"></textarea>
+            <button class="modal__btn" type="submit">Отправить</button>
+            <div class="modal__wrapper">
+              <input class="visually-hidden" type="checkbox" name="processing-m" id="processing-m" checked required>
+              <label for="processing-m">Я&nbsp;согласен на&nbsp;обработку персональных данных</label>
+            </div>
+          </fieldset>
+        </form>
+      </div>
     </div>
 
     <script src="js/main.js"></script>
