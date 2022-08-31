@@ -33,7 +33,7 @@ const css = () => {
 };
 
 const js = () => {
-  return gulp.src(['source/js/main.js'])
+  return gulp.src(['source/js/**.js'])
       // .pipe(webpackStream(webpackConfig))
       .pipe(gulp.dest('build/js'))
 };
@@ -127,7 +127,7 @@ const start = gulp.series(build, syncServer);
 // root = 'content/' - webp добавляются и обновляются только в source/img/content/
 
 const createWebp = () => {
-  const root = '';
+  const root = 'content/';
   return gulp.src(`source/img/${root}**/*.{png,jpg}`)
     .pipe(webp({quality: 90}))
     .pipe(gulp.dest(`source/img/${root}`));

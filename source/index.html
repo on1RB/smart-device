@@ -10,7 +10,7 @@
     <link rel="preload" href="fonts/Robotocondensed.woff2" as="font">
     <link rel="stylesheet" href="css/style.min.css">
   </head>
-  <body class="page-body">
+  <body>
     <div class="wrapper">
       <header class="page-header">
         <div class="page-header__container">
@@ -42,6 +42,17 @@
       <main class="page-main">
         <h1 class="visually-hidden">Smart Device - умные технологии</h1>
         <section class="boards">
+          <div class="boards__wrapper">
+            <picture>
+              <source media="(max-width: 767px)" type="image/webp" srcset="img/content/header-mobile-bg.webp 1x, img/content/header-mobile-bg@2x.webp 2x">
+              <source media="(max-width: 1024px)" type="image/webp" srcset="img/content/header-tablet-bg.webp 1x, img/content/header-tablet-bg@2x.webp 2x">
+              <source type="image/webp" srcset="img/content/header-desktop-bg.webp 1x, img/content/header-desktop-bg@2x.webp 2x">
+              <source media="(max-width: 767px)" srcset="img/content/header-mobile-bg.png 1x, img/content/header-mobile-bg@2x.png 2x">
+              <source media="(max-width: 1024px)" srcset="img/content/header-tablet-bg.png 1x, img/content/header-tablet-bg@2x.png 2x">
+              <!-- 1x: 1920px; 2x: 3840px -->
+              <img class="boards__pic" src="img/content/header-desktop-bg.png" srcset="img/content/header-desktop-bg@2x.png" alt="Печатная плата" width="1920" height="880">
+            </picture>
+          </div>
           <div class="boards__container">
             <h2>Печатные платы</h2>
             <p>производство и&nbsp;монтаж, поставка комплектующих, блоков и&nbsp;модулей</p>
@@ -98,17 +109,17 @@
             <h3>Smart Device предлагает следующие товары и услуги</h3>
             <h3>Товары и услуги Smart Device</h3>
             <ul class="products__list">
-              <li class="products__item">
+              <li class="products__item products__item--product1">
                 <a href="#" class="products__link">
                   <span>Производство печатных плат</span>
                 </a>
               </li>
-              <li class="products__item">
+              <li class="products__item products__item--product2">
                 <a href="#" class="products__link">
                   <span>Монтаж печатных плат</span>
                 </a>
               </li>
-              <li class="products__item">
+              <li class="products__item products__item--product3">
                 <a href="#" class="products__link">
                   <span>Комплектующие для&nbsp;светотехники</span>
                 </a>
@@ -126,11 +137,11 @@
                 <label class="visually-hidden" for="name">Введите ваше имя.</label>
                 <input type="text" id="name" name="name" placeholder="Имя" required minlength="1">
                 <label class="visually-hidden" for="phone">Введите ваш номер телефона.</label>
-                <input type="tel" name="phone" id="phone" placeholder="Телефон" value="+7(" pattern="^\+7\(\d{3}\)\d{7}$" maxlength="14" required>
+                <input type="tel" name="phone" id="phone" placeholder="Телефон" pattern="^\+7\(\d{3}\)\d{7}$" maxlength="14" required>
                 <label class="visually-hidden" for="question">Напишите ваш вопрос.</label>
                 <textarea name="question" id="question" rows="5" placeholder="Ваш вопрос"></textarea>
-                <button class="feedback__btn" type="submit">Задать вопрос</button>
-                <div class="feedback__wrapper">
+                <button type="submit">Задать вопрос</button>
+                <div>
                   <input class="visually-hidden" type="checkbox" name="processing" id="processing" checked required>
                   <label for="processing">Я&nbsp;согласен на&nbsp;обработку персональных данных</label>
                 </div>
@@ -236,11 +247,11 @@
             <label class="visually-hidden" for="user-name">Введите ваше имя.</label>
             <input type="text" id="user-name" name="user-name" placeholder="Имя" required minlength="1">
             <label class="visually-hidden" for="tel">Введите ваш номер телефона.</label>
-            <input type="tel" name="tel" id="tel" placeholder="Телефон" value="+7(" pattern="^\+7\(\d{3}\)\d{7}$" maxlength="14" required>
+            <input type="tel" name="tel" id="tel" placeholder="Телефон" pattern="^\+7\(\d{3}\)\d{7}$" maxlength="14" required>
             <label class="visually-hidden" for="question-modal">Напишите ваш вопрос.</label>
             <textarea name="question-modal" id="question-modal" rows="5" placeholder="Ваш вопрос"></textarea>
-            <button class="modal__btn" type="submit">Отправить</button>
-            <div class="modal__wrapper">
+            <button type="submit">Отправить</button>
+            <div>
               <input class="visually-hidden" type="checkbox" name="processing-m" id="processing-m" checked required>
               <label for="processing-m">Я&nbsp;согласен на&nbsp;обработку персональных данных</label>
             </div>
@@ -248,7 +259,6 @@
         </form>
       </div>
     </div>
-
     <script src="js/main.js"></script>
   </body>
 </html>

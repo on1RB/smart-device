@@ -2,24 +2,33 @@
   position: relative;
   z-index: 2;
   min-height: 880px;
-  background-color: #253848;
-  background-image: url("../img/header-desktop-bg.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 
   @include vp-1023 {
     min-height: 640px;
-    background-image: url("../img/header-tablet-bg.png");
   }
 
   @include vp-767 {
     min-height: 560px;
-    background-image: url("../img/header-mobile-bg.png");
   }
 }
 
+.boards__wrapper {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #253848;
+}
+
+.boards__pic {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 .boards__container {
+  z-index: 2;
+  position: relative;
   max-width: 1220px;
   margin: 0 auto;
   padding-left: 125px;

@@ -1,14 +1,9 @@
-// import {iosVhFix} from './utils/ios-vh-fix';
-// import {initModals} from './modules/modals/init-modals';
-
 // ---------------------------------
 
 window.addEventListener('DOMContentLoaded', () => {
 
   // Utils
   // ---------------------------------
-
-  // iosVhFix();
 
   // Modules
   // ---------------------------------
@@ -48,22 +43,24 @@ window.addEventListener('DOMContentLoaded', () => {
   const textList = Array.prototype.slice.call(text);
   const textHidden = document.querySelector('.about__text-hidden');
 
-  button.addEventListener('click', () => {
-    if (textHidden.classList.contains('about__text-hidden')) {
-      textHidden.classList.remove('about__text-hidden');
-    } else {
-      textHidden.classList.add('about__text-hidden');
-    }
-    textList.forEach((element) => {
-      if (element.classList.contains('about__hidden')) {
-        element.classList.remove('about__hidden');
-        button.textContent = 'Свернуть';
+  if (button) {
+    button.addEventListener('click', () => {
+      if (textHidden.classList.contains('about__text-hidden')) {
+        textHidden.classList.remove('about__text-hidden');
       } else {
-        element.classList.add('about__hidden');
-        button.textContent = 'Подробнее';
+        textHidden.classList.add('about__text-hidden');
       }
+      textList.forEach((element) => {
+        if (element.classList.contains('about__hidden')) {
+          element.classList.remove('about__hidden');
+          button.textContent = 'Свернуть';
+        } else {
+          element.classList.add('about__hidden');
+          button.textContent = 'Подробнее';
+        }
+      });
     });
-  });
+  }
 
   const phoneInput = document.querySelector('input#phone');
 
@@ -74,12 +71,14 @@ window.addEventListener('DOMContentLoaded', () => {
       target.value = target.value.slice(0, -1);
     }
 
-    if (inputType === 'deleteContentBackward' && target.value.length <= 3) {
-      target.value = '+7(';
-    }
+    if (inputType !== 'deleteContentBackward') {
+      if (!target.value.startsWith('+7(')) {
+        target.value = `+7(${target.value}`;
+      }
 
-    if (inputType !== 'deleteContentBackward' && target.value.length >= 6 && target.value[6] !== ')') {
-      target.value = `${target.value.slice(0, 6)})${target.value.slice(6)}`;
+      if (target.value.length >= 6 && target.value[6] !== ')') {
+        target.value = `${target.value.slice(0, 6)})${target.value.slice(6)}`;
+      }
     }
   });
 
@@ -96,16 +95,18 @@ window.addEventListener('DOMContentLoaded', () => {
       target.value = target.value.slice(0, -1);
     }
 
-    if (inputType === 'deleteContentBackward' && target.value.length <= 3) {
-      target.value = '+7(';
-    }
+    if (inputType !== 'deleteContentBackward') {
+      if (!target.value.startsWith('+7(')) {
+        target.value = `+7(${target.value}`;
+      }
 
-    if (inputType !== 'deleteContentBackward' && target.value.length >= 6 && target.value[6] !== ')') {
-      target.value = `${target.value.slice(0, 6)})${target.value.slice(6)}`;
+      if (target.value.length >= 6 && target.value[6] !== ')') {
+        target.value = `${target.value.slice(0, 6)})${target.value.slice(6)}`;
+      }
     }
   });
 
-  const pageBody = document.querySelector('.page-body');
+  const pageBody = document.querySelector('body');
   const headerButton = document.querySelector('.page-header__button');
   const modal = document.querySelector('.modal');
   const modalClose = document.querySelector('.modal__close');
@@ -132,34 +133,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
-  // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
-    // initModals();
   });
 });
-
-// ---------------------------------
-
-// ❗❗❗ обязательно установите плагины eslint, stylelint, editorconfig в редактор кода.
-
-// привязывайте js не на классы, а на дата атрибуты (data-validate)
-
-// вместо модификаторов .block--active используем утилитарные классы
-// .is-active || .is-open || .is-invalid и прочие (обязателен нейминг в два слова)
-// .select.select--opened ❌ ---> [data-select].is-open ✅
-
-// выносим все в дата атрибуты
-// url до иконок пинов карты, настройки автопрокрутки слайдера, url к json и т.д.
-
-// для адаптивного JS используется matchMedia и addListener
-// const breakpoint = window.matchMedia(`(min-width:1024px)`);
-// const breakpointChecker = () => {
-//   if (breakpoint.matches) {
-//   } else {
-//   }
-// };
-// breakpoint.addListener(breakpointChecker);
-// breakpointChecker();
-
-// используйте .closest(el)
