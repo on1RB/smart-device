@@ -714,7 +714,6 @@ video {
 .page-footer__accordion {
   border: none;
   background: none;
-  outline: none;
   padding: 0;
   text-align: left;
   margin: 0;
@@ -1017,7 +1016,6 @@ video {
 }
 
 .about__btn {
-  outline: none;
   border: 1px solid #00b2ff;
   border-radius: 3px;
   font-size: 14px;
@@ -1216,7 +1214,6 @@ form textarea {
   line-height: 22px;
   border-radius: 3px;
   border: none;
-  outline: none;
   background-color: rgba(4, 20, 39, 0.15);
   color: #ffffff;
   padding: 15px;
@@ -1307,7 +1304,6 @@ form button {
   background-color: #041427;
   border-radius: 3px;
   border: none;
-  outline: none;
   padding: 15px 25px;
   padding-bottom: 11px;
   margin-top: 15px;
