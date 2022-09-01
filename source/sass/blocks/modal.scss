@@ -92,7 +92,7 @@
 
 .modal form input[type="text"],
 .modal form input[type="tel"],
-.modal form div {
+form div {
   grid-column: 1/3;
 }
 
@@ -111,6 +111,7 @@
   border: none;
   padding: 15px 60px;
   cursor: pointer;
+  max-width: 100%;
 }
 
 .modal input[type="checkbox"] + label {
