@@ -14,7 +14,7 @@
     <div class="wrapper">
       <header class="page-header">
         <div class="page-header__container">
-          <a href="#" class="page-header__logo" tabindex="1">
+          <a class="page-header__logo">
             <svg class="page-header__logo-icon" width="55" height="55">
               <use xlink:href="img/sprite_auto.svg#logo"></use>
             </svg>
@@ -23,20 +23,20 @@
             </svg>
           </a>
           <div class="page-header__inner">
-            <a href="mailto:info@sd.ru" class="page-header__mail" tabindex="2">
+            <a href="mailto:info@sd.ru" class="page-header__mail">
               <svg class="page-header__icon-mail" width="20" height="20">
                 <use xlink:href="img/sprite_auto.svg#icon-mail"></use>
               </svg>
               <span class="page-header__text">info@sd.ru</span>
             </a>
-            <a href="tel:+74950005252" class="page-header__tel" tabindex="3">
+            <a href="tel:+74950005252" class="page-header__tel">
               <svg class="page-header__icon-phone" width="20" height="20">
                 <use xlink:href="img/sprite_auto.svg#icon-phone"></use>
               </svg>
               <span class="page-header__text">+7 (495) 000 52 52</span>
             </a>
           </div>
-          <button type="button" class="page-header__button" tabindex="4">Заказать звонок</button>
+          <button type="button" class="page-header__button">Заказать звонок</button>
         </div>
       </header>
       <main class="page-main">
@@ -56,7 +56,7 @@
           <div class="boards__container">
             <h2>Печатные платы</h2>
             <p>производство и&nbsp;монтаж, поставка комплектующих, блоков и&nbsp;модулей</p>
-            <a href="#feedback" class="boards__btn" tabindex="5">
+            <a href="#feedback" class="boards__btn">
               <span>Бесплатная консультация</span>
               <span>Получить бесплатную консультацию</span>
             </a>
@@ -102,7 +102,7 @@
           <p class="about__text-hidden">Печатные платы и&nbsp;комплектующие Service Devices применяются на&nbsp;предприятиях Российских Железных Дорог (РЖД), РоссАвтоПрома (ВАЗ, АвтоГАЗ), МинАтома, СпецМедТехники. Среди наших клиентов крупнейшие Производители светотехники России.</p>
           <p class="about__hidden">Smart Device&nbsp;- это команда профессионалов. Через нас прошло более 1&nbsp;000&nbsp;000&nbsp;клиентов, 70% из&nbsp;которых продолжают сотрудничество по&nbsp;сей день. На&nbsp;данный момент насчитывается более 14&nbsp;офисов по&nbsp;всей стране и&nbsp;20&nbsp;городов присутствия.</p>
           <p class="about__hidden">Мы&nbsp;стремимся к&nbsp;постоянному развитию и&nbsp;повышению уровня качества продукции, производимой внутри компании. Использование инновационных технологий помогает экономить деньги и&nbsp;время наших клиентов</p>
-          <button type="button" class="about__btn" tabindex="6">Подробнее</button>
+          <button type="button" class="about__btn">Подробнее</button>
         </section>
         <section class="products">
           <div class="products__container">
@@ -110,17 +110,17 @@
             <h3>Товары и услуги Smart Device</h3>
             <ul class="products__list">
               <li class="products__item products__item--product1">
-                <a href="#" class="products__link" tabindex="7">
+                <a href="#" class="products__link">
                   <span>Производство печатных плат</span>
                 </a>
               </li>
               <li class="products__item products__item--product2">
-                <a href="#" class="products__link" tabindex="8">
+                <a href="#" class="products__link">
                   <span>Монтаж печатных плат</span>
                 </a>
               </li>
               <li class="products__item products__item--product3">
-                <a href="#" class="products__link" tabindex="9">
+                <a href="#" class="products__link">
                   <span>Комплектующие для&nbsp;светотехники</span>
                 </a>
               </li>
@@ -135,14 +135,19 @@
             <form action="https://echo.htmlacademy.ru" method="post">
               <fieldset>
                 <label class="visually-hidden" for="name">Введите ваше имя.</label>
-                <input type="text" id="name" name="name" placeholder="Имя" required minlength="1" tabindex="10">
+                <input type="text" id="name" name="name" placeholder="Имя" required minlength="1">
                 <label class="visually-hidden" for="phone">Введите ваш номер телефона.</label>
-                <input type="tel" name="phone" id="phone" placeholder="Телефон" pattern="^\+7\(\d{3}\)\d{7}$" maxlength="14" required tabindex="11">
+                <input type="tel" name="phone" id="phone" placeholder="Телефон" pattern="^\+7\(\d{3}\)\d{7}$" maxlength="14" required>
                 <label class="visually-hidden" for="question">Напишите ваш вопрос.</label>
-                <textarea name="question" id="question" rows="5" placeholder="Ваш вопрос" tabindex="12"></textarea>
-                <button type="submit" tabindex="13">Задать вопрос</button>
-                <input class="visually-hidden" type="checkbox" name="processing" id="processing" checked required tabindex="14">
-                <label for="processing" tabindex="15">Я&nbsp;согласен на&nbsp;обработку персональных данных</label>
+                <textarea name="question" id="question" rows="5" placeholder="Ваш вопрос"></textarea>
+                <div>
+                  <label>
+                    <input class="visually-hidden" type="checkbox" name="processing" id="processing" checked required>
+                    <span></span>
+                    <b>Я&nbsp;согласен на&nbsp;обработку персональных данных</b>
+                  </label>
+                </div>
+                <button type="submit">Задать вопрос</button>
               </fieldset>
             </form>
           </div>
@@ -151,7 +156,7 @@
       <footer class="page-footer">
         <div class="page-footer__container">
           <div class="page-footer__inner">
-            <a href="#" class="page-footer__logo">
+            <a class="page-footer__logo">
               <svg class="page-footer__logo-icon" width="55" height="55">
                 <use xlink:href="img/sprite_auto.svg#logo"></use>
               </svg>
@@ -233,28 +238,33 @@
       </footer>
     </div>
     <div class="modal">
-      <div class="modal__overlay"></div>
-      <div class="modal__container">
-        <h3>Закажите звонок</h3>
-        <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
-        <button type="button" class="modal__close">
-          <span class="visually-hidden">Закрыть окно</span>
-        </button>
-        <form action="https://echo.htmlacademy.ru" method="post">
-          <fieldset>
-            <label class="visually-hidden" for="user-name">Введите ваше имя.</label>
-            <input type="text" id="user-name" name="user-name" placeholder="Имя" required minlength="1">
-            <label class="visually-hidden" for="tel">Введите ваш номер телефона.</label>
-            <input type="tel" name="tel" id="tel" placeholder="Телефон" pattern="^\+7\(\d{3}\)\d{7}$" maxlength="14" required>
-            <label class="visually-hidden" for="question-modal">Напишите ваш вопрос.</label>
-            <textarea name="question-modal" id="question-modal" rows="5" placeholder="Ваш вопрос"></textarea>
-            <button type="submit">Отправить</button>
-            <div>
-              <input class="visually-hidden" type="checkbox" name="processing-m" id="processing-m" checked required>
-              <label for="processing-m">Я&nbsp;согласен на&nbsp;обработку персональных данных</label>
-            </div>
-          </fieldset>
-        </form>
+      <div class="modal__wrapper">
+        <div class="modal__overlay"></div>
+        <div class="modal__container">
+          <h3>Закажите звонок</h3>
+          <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+          <button type="button" class="modal__close" tabindex="6">
+            <span class="visually-hidden">Закрыть окно</span>
+          </button>
+          <form action="https://echo.htmlacademy.ru" method="post">
+            <fieldset class="modal__inner">
+              <label class="visually-hidden" for="user-name">Введите ваше имя.</label>
+              <input type="text" id="user-name" name="user-name" placeholder="Имя" required minlength="1" tabindex="1">
+              <label class="visually-hidden" for="tel">Введите ваш номер телефона.</label>
+              <input type="tel" name="tel" id="tel" placeholder="Телефон" pattern="^\+7\(\d{3}\)\d{7}$" maxlength="14" required tabindex="2">
+              <label class="visually-hidden" for="question-modal">Напишите ваш вопрос.</label>
+              <textarea name="question-modal" id="question-modal" rows="5" placeholder="Ваш вопрос" tabindex="3"></textarea>
+              <div class="modal__block">
+                <label>
+                  <input class="visually-hidden" type="checkbox" name="processing-m" id="processing-m" checked required tabindex="4">
+                  <span></span>
+                  <b>Я&nbsp;согласен на&nbsp;обработку персональных данных</b>
+                </label>
+              </div>
+              <button type="submit" tabindex="5">Отправить</button>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </div>
     <script src="js/main.js"></script>

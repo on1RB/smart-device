@@ -67,7 +67,8 @@
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6.9%;
+  column-gap: 6.9%;
+  row-gap: 85px;
 
   @include vp-1023 {
     grid-template-columns: 1fr;
@@ -80,6 +81,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #1b4b6e;
+
+  &:hover {
+    opacity: 0.6;
+  }
 
   &--product1 {
     background-image: url("../img/product1-desktop.png");

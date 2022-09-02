@@ -97,3 +97,20 @@
     margin-bottom: 34px;
   }
 }
+
+.feedback__container div {
+  display: flex;
+  position: relative;
+  grid-column: auto;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: 15px;
+
+  @include vp-1023 {
+    margin-top: 10px;
+  }
+
+  @include vp-767 {
+    margin-top: 0;
+  }
+}

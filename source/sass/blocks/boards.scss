@@ -5,10 +5,12 @@
 
   @include vp-1023 {
     min-height: 640px;
+    margin-top: -100px;
   }
 
   @include vp-767 {
     min-height: 560px;
+    margin-top: -70px;
   }
 }
 
@@ -114,6 +116,10 @@
   padding: 17px 27px;
   border-radius: 3px;
   cursor: pointer;
+
+  &:hover {
+    color: $color-black-pearl;
+  }
 
   @include vp-1023 {
     margin-left: 46px;

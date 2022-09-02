@@ -12,6 +12,12 @@ window.addEventListener('DOMContentLoaded', () => {
   const panelList = document.querySelectorAll('.page-footer__panel');
   const panels = Array.prototype.slice.call(panelList);
 
+  if (document.documentElement.clientWidth > 767) {
+    for (let i = 0; i < accList.length; i++) {
+      accList[i].setAttribute('disabled', 'disabled');
+    }
+  }
+
   panels.forEach((element) => {
     element.classList.remove('page-footer__panel--nojs');
   });
@@ -24,16 +30,16 @@ window.addEventListener('DOMContentLoaded', () => {
     element.addEventListener('click', () => {
       element.classList.toggle('page-footer__accordion--open');
       const panel = element.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
+      if (panel.style.display) {
+        panel.style.display = null;
       } else {
-        panel.style.maxHeight = panel.scrollHeight + 'px';
+        panel.style.display = 'block';
       }
 
       // eslint-disable-next-line max-nested-callbacks, no-shadow
       accList.filter((_, i) => i !== index).forEach((element) => {
         element.classList.remove('page-footer__accordion--open');
-        element.nextElementSibling.style.maxHeight = null;
+        element.nextElementSibling.style.display = null;
       });
     });
   });
@@ -112,11 +118,41 @@ window.addEventListener('DOMContentLoaded', () => {
   const modalClose = document.querySelector('.modal__close');
   const modalOverlay = document.querySelector('.modal__overlay');
   const nameInput = document.querySelector('#user-name');
+  const firstFocusElement = nameInput;
+  const lastFocusElement = modal.querySelector('form').querySelector('button');
+
+  modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && e.shiftKey) {
+      if (document.activeElement === firstFocusElement) {
+        modalClose.focus();
+        e.preventDefault();
+      } else if (document.activeElement === modalClose) {
+        lastFocusElement.focus();
+        e.preventDefault();
+      }
+    } else {
+      if (document.activeElement === lastFocusElement) {
+        modalClose.focus();
+        e.preventDefault();
+      } else if (document.activeElement === modalClose) {
+        firstFocusElement.focus();
+        e.preventDefault();
+      }
+    }
+  });
 
   headerButton.addEventListener('click', () => {
     pageBody.classList.add('scroll-lock-ios');
     modal.classList.add('modal--open');
     nameInput.focus();
+
+    if (modal.classList.contains('modal--open')) {
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          modal.classList.remove('modal--open');
+        }
+      });
+    }
   });
 
   modalClose.addEventListener('click', () => {
